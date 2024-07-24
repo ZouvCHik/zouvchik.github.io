@@ -32,13 +32,14 @@
             let days = milliseconds / 1000 / 60 / 60 / 24;
             let hours = (milliseconds - (Math.floor(days) * 1000 * 60 * 60 * 24)) / 1000 / 60 / 60;
             let minutes = (milliseconds - ((Math.floor(days) * 24 * 60 * 60 * 1000) + (Math.floor(hours) * 60 * 60 * 1000))) / 1000 / 60;
-            $('#timer').text(`${(Math.floor(days).toString().split() < 2) ? "0"+Math.floor(days) : Math.floor(days)}:${(Math.ceil(hours).toString().split() < 2) ?  "0"+Math.ceil(hours) : Math.ceil(hours)}:${(Math.ceil(minutes).toString().split() < 2) ? "0"+Math.ceil(minutes) : Math.ceil(minutes)}`);
+            $('#timer').text(`${(Math.floor(days).toString().split("").length < 2) ? "0"+Math.floor(days) : Math.floor(days)}:${(Math.ceil(hours).toString().split("").length < 2) ?  "0"+Math.ceil(hours) : Math.ceil(hours)}:${(Math.ceil(minutes).toString().split("").length < 2) ? "0"+Math.ceil(minutes) : Math.ceil(minutes)}`);
         }
 
         setInterval(task, 1000);
     </script>
 
     <style>
+    
         .container {
             margin-top: 250px;
         }
@@ -63,6 +64,9 @@
             #timer {
                 font-size: 100px;
             }
+            .container {
+                margin-top: 150px;
+            }   
         }
     </style>
 </body>
