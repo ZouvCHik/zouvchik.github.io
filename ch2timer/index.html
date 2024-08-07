@@ -33,6 +33,10 @@
             let hours = (milliseconds - (Math.floor(days) * 1000 * 60 * 60 * 24)) / 1000 / 60 / 60;
             let minutes = (milliseconds - ((Math.floor(days) * 24 * 60 * 60 * 1000) + (Math.floor(hours) * 60 * 60 * 1000))) / 1000 / 60;
             if(hours > 23) hours = 00;
+            if(minutes == 60) {
+                minutes = 0;
+                hours += 1;
+            }
             $('#timer').text(`${(Math.floor(days).toString().split("").length < 2) ? "0"+Math.floor(days) : Math.floor(days)}:${(Math.ceil(hours).toString().split("").length < 2) ?  "0"+Math.ceil(hours) : Math.ceil(hours)}:${(Math.ceil(minutes).toString().split("").length < 2) ? "0"+Math.ceil(minutes) : Math.ceil(minutes)}`);
         }
 
